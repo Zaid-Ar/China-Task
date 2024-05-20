@@ -76,9 +76,10 @@ const DetailsForm: React.FC = () => {
 
 
   return (
+    <>
     <div>
   
-      <form onSubmit={formik.handleSubmit} className='grid grid-cols-9 gap-4'>
+      <form onSubmit={formik.handleSubmit} className='grid grid-cols-9 gap-3'>
         
     
       <div className='col-start-1 col-end-3 text-left pt-5'>
@@ -99,7 +100,7 @@ const DetailsForm: React.FC = () => {
             onChange={formik.handleChange}
           />
           {formik.touched.email && formik.errors.email && (
-            <div className="error">{formik.errors.email}</div>
+            <div className="error text-sm text-red-500 flex items-center mt-2">{formik.errors.email}</div>
           )}
         </div>
 
@@ -113,7 +114,7 @@ const DetailsForm: React.FC = () => {
             className={"block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base"}
           />
           {formik.touched.email && formik.errors.email && (
-            <div className="error">{formik.errors.email}</div>
+            <div className="error text-sm text-red-500 flex items-center mt-2">{formik.errors.email}</div>
           )}
         </div>
         
@@ -138,7 +139,7 @@ const DetailsForm: React.FC = () => {
             className={"block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base"}
           />
           {formik.touched.fullName && formik.errors.fullName && (
-            <div className="error">{formik.errors.fullName}</div>
+            <div className="error text-sm text-red-500 flex items-center mt-2">{formik.errors.fullName}</div>
           )}
         </div>
         <div className='col-start-4 col-end-6'>
@@ -151,7 +152,7 @@ const DetailsForm: React.FC = () => {
             className={"block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base"}
           />
           {formik.touched.phoneNumber && formik.errors.phoneNumber && (
-            <div className="error">{formik.errors.phoneNumber}</div>
+            <div className="error text-sm text-red-500 flex items-center mt-2">{formik.errors.phoneNumber}</div>
           )}
         </div>
         <div className='col-start-7 col-end-9'>
@@ -164,7 +165,7 @@ const DetailsForm: React.FC = () => {
             className={"block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base"}
           />
           {formik.touched.dateOfBirth && formik.errors.dateOfBirth && (
-            <div className="error">{formik.errors.dateOfBirth}</div>
+            <div className="error text-sm text-red-500 flex items-center mt-2">{formik.errors.dateOfBirth}</div>
           )}
         </div>
      
@@ -195,7 +196,7 @@ const DetailsForm: React.FC = () => {
 
           </select>
           {formik.touched.nationality && formik.errors.nationality&& (
-            <div className="error">{formik.errors.nationality}</div>
+            <div className="error text-sm text-red-500 flex items-center mt-2">{formik.errors.nationality}</div>
           )}
         </div>
         <div className='col-start-4 col-end-6'>
@@ -205,7 +206,7 @@ const DetailsForm: React.FC = () => {
             name="gender"
             value={formik.values.gender}
             onChange={formik.handleChange}
-            className={"block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base"}
+            className={"block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base "}
           >
         <option value="">Select a Gender</option>
         <option value="M">Male</option>
@@ -213,17 +214,19 @@ const DetailsForm: React.FC = () => {
 
           </select>
           {formik.touched.gender && formik.errors.gender&& (
-            <div className="error">{formik.errors.gender}</div>
+            <div className="error text-sm text-red-500 flex items-center mt-2">{formik.errors.gender}</div>
           )}
         </div>
         
-        <button type="submit" disabled={submitting} className='col-start-1 col-end-3  py-2.5 px-5 me-2 mb-2 text-sm font-medium text-lime-700 text-nowrap mt-8 focus:outline-none bg-lime-400 rounded-lg '>
-          Submit
+        <button type="submit" disabled={submitting} className='col-start-1 col-end-3  block w-full p-4 font-medium text-white text-nowrap mt-8 focus:outline-none bg-lime-600 rounded-lg '>
+          Update
         </button>
       
       </form>
     </div>
-  );
+
+</>  
+);
 };
 
 export default DetailsForm;
