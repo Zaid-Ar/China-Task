@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { countries } from './countries';
-interface FormValues {
+
+export type UserType = {
+    _id:string;
     email: string;
     fullName: string;
     changePassword: string;
@@ -10,11 +12,29 @@ interface FormValues {
     dateOfBirth:string;
     nationality:string;
     gender:string;
-    
 }
 
-const DetailsForm: React.FC = () => {
-  const [submitting, setSubmitting] = useState(false);
+
+type Props = {
+    user?: UserType;
+    onSave: (formData: FormData) => void;
+    isLoading: boolean;
+  };
+  
+
+const DetailsForm = ({ onSave, isLoading, user }: Props) => {
+  
+  const initialValues :UserType ={
+       _id: user?._id || "",
+        fullName: user?.fullName  || '',
+        email:  user?.email || '',
+        changePassword: user?.changePassword ||'',
+        phoneNumber: user?.phoneNumber || '',
+        dateOfBirth:  user?.dateOfBirth || '',
+        nationality: user?.nationality ||'',
+        gender:  user?.gender || ""
+    
+}
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'),
@@ -42,32 +62,41 @@ const DetailsForm: React.FC = () => {
 
    });
 
-  const handleSubmit = async (values: FormValues) => {
+  const handleSubmit = async (values:UserType) => {
     try {
-      setSubmitting(true);
-      // Perform form submission logic here
-      console.log(values);
-      // Set submitting to false after successful submission
-      setSubmitting(false);
+
+      const formData = new FormData();
+
+      if (user) {
+        formData.append("userId", user._id);
+      }
+      // Object.entries(values).forEach(([key, value]) => {
+      //   if (Array.isArray(value)) {
+      //     value.forEach((item, index) => {
+      //       formData.append(`${key}[${index}]`, item);
+      //     });
+      //   } else {
+      //     formData.append(key, value);
+      //   }
+      // });
+      formData.append("fullName",values.fullName)
+      formData.append("email",values.email)
+      formData.append("changePassword",values.changePassword)
+      formData.append("phoneNumber",values.phoneNumber)
+      formData.append("dateOfBirth",values.dateOfBirth)
+      formData.append("nationality",values.nationality)
+      formData.append("gender",values.gender)
+      onSave(formData);
+
     } catch (error) {
       // Handle form submission error
       console.error(error);
-      setSubmitting(false);
+
     }
   };
 
   const formik = useFormik({
-    initialValues: {
-      fullName: '',
-      email: '',
-      changePassword: '',
-      phoneNumber:'',
-      dateOfBirth:'',
-      nationality:'',
-      gender:""
-      
-    
-    },
+    initialValues,
     validationSchema,
     onSubmit: handleSubmit,
   });
@@ -218,7 +247,7 @@ const DetailsForm: React.FC = () => {
           )}
         </div>
         
-        <button type="submit" disabled={submitting} className='col-start-1 col-end-3  block w-full p-4 font-medium text-white text-nowrap mt-8 focus:outline-none bg-lime-600 rounded-lg '>
+        <button type="submit" disabled={isLoading} className='col-start-1 col-end-3  block w-full p-4 font-medium text-white text-nowrap mt-8 focus:outline-none bg-lime-600 rounded-lg '>
           Update
         </button>
       
