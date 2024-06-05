@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { countries } from './countries';
+import { countries } from '../component/countries';
 
 export type UserType = {
     _id:string;

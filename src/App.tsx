@@ -9,7 +9,8 @@ import './App.css'
 import Orders from "./pages/Orders";
 import Layout from "./layout/PurchaseLayout";
 import MyPurchase from "./pages/MyPurchase";
-import AccountDetails from "./pages/AccountDetails";
+import AddProduct from "./pages/AddProduct";
+// import AccountDetails from "./pages/AccountDetails";
 function App() {
   
 
@@ -28,7 +29,7 @@ function App() {
         
           }
         />
-        <Route
+        {/* <Route
           path="/account-Details"
           element={
             
@@ -38,7 +39,7 @@ function App() {
             
         
           }
-        />
+        /> */}
            <Route
           path="/orders"
           element={
@@ -50,6 +51,9 @@ function App() {
         
           }
         />
+        <Route path="/addProduct" element={<Layout>
+          <AddProduct/>
+        </Layout>}/>
       </Routes>
     </Router>
     
