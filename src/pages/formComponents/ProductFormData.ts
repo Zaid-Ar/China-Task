@@ -10,5 +10,9 @@ export type ProductFormData = {
     imageFiles: FileList;
     imageUrls: string[];
     mainImage: string;
-
+    MainCategory:string;
+    SubCategory:string;
+    tag:string;
+    unit:string;
+    color:string
   };

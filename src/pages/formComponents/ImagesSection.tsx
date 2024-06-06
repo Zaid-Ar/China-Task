@@ -93,7 +93,7 @@ const ImagesSection: React.FC = () => {
        
       </div>
       <div className='col-start-1 col-end-3'>
-      <label className="w-1/2 h-8   m-2 text-lg text-black transition-colors duration-150 bg-lime-200 rounded-lg focus:shadow-outline hover:bg-lime-600 cursor-pointer">
+      <label className="w-1/2 h-16 p-2.5   m-2 text-lg text-black transition-colors duration-150 bg-lime-200 rounded-lg focus:shadow-outline hover:bg-lime-600 cursor-pointer">
         Select Images
       <input
           type="file"

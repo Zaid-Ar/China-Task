@@ -8,7 +8,7 @@ const PriceForm = () => {
     formState: { errors },
   } = useFormContext<ProductFormData>();
   return (
-    <div className="grid grid-cols-2 gap-4 mt-20">
+    <div className="grid grid-cols-2 gap-4 mt-32">
       <div className="col-span-1">
         <div className="mb-6">
           <label
