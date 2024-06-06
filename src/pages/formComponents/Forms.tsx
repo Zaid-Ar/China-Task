@@ -12,11 +12,11 @@ const Forms = () => {
   return (
     <>
       <FormProvider {...formMethods}>
-        <form className="grid grid-Cols-4 gap-4" onSubmit={onSubmit}>
+        <form className="grid grid-Cols-5 gap-4" onSubmit={onSubmit}>
           <div className="col-start-1 col-end-2">
             <MainForm />
           </div>
-          <div className="col-start-3 col-end-4">
+          <div className="col-start-3 col-end-5">
             <SecondForm />
           </div>
         </form>

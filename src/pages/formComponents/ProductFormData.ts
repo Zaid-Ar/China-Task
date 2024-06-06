@@ -9,4 +9,6 @@ export type ProductFormData = {
     amount:number;
     imageFiles: FileList;
     imageUrls: string[];
+    mainImage: string;
+
   };
