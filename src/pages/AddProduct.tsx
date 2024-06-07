@@ -1,6 +1,6 @@
 import React from 'react'
 import Forms  from '../pages/formComponents/Forms'
-
+import { useNavigate } from 'react-router-dom'
 const AddProduct = () => {
   const  navigate = useNavigate()
   const { mutate} = useMutation(apiClient.addMyProduct, {
@@ -8,7 +8,7 @@ const AddProduct = () => {
       navigate("/")
     },
     onError: () => {
-      console.log({ message: "Error Saving Hotel", type: "ERROR" });
+      console.log({ message: "Error Saving Product", type: "ERROR" });
     },
   });
 
