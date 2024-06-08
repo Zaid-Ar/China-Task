@@ -8,7 +8,7 @@ const AddProduct = () => {
       navigate("/")
     },
     onError: () => {
-      console.log({ message: "Error Saving Product", type: "ERROR" });
+      console.log({ message: "Error Saving this product", type: "ERROR" });
     },
   });
 
